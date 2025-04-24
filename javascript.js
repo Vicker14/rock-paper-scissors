@@ -9,7 +9,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    const humanChoice = prompt("Enter your choice (rock, paper, scissors): ");
+    const humanChoice = prompt("Enter your choice (rock, paper, scissors): ").toLowerCase();
 
     if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
         return humanChoice;
@@ -22,12 +22,23 @@ function getHumanChoice() {
         return getHumanChoice();
     }
 }
+
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound(){
-    const humanChoice = getHumanChoice().toLowerCase();
-    const computerChoice = getComputerChoice();
-
-
+function playRound(humanChoice, computerChoice){
+    if (humanChoice === computerChoice) {
+        alert(`It's a tie! Both chose ${humanChoice}.`);
+    } else if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+        humanScore++;
+        alert(`You win this round! ${humanChoice} beats ${computerChoice}.`);
+    } else {
+        computerScore++;
+        alert(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
+    }
+    alert(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
 }
