@@ -10,7 +10,13 @@ function getComputerChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-const result = document.querySelector("#ressult");
+const gameInformation = document.querySelector("#ressult");
+
+const scoreBoard = document.createElement("div");
+gameInformation.appendChild(scoreBoard);
+
+const result = document.createElement("div")
+gameInformation.appendChild(result);
 
 function playRound(humanChoice, computerChoice){
     if (humanChoice === computerChoice) {
@@ -26,15 +32,16 @@ function playRound(humanChoice, computerChoice){
         computerScore++;
         result.textContent = `You lose this round! ${computerChoice} beats ${humanChoice}.`;
     }
-}
-function playGame() {
-    
-    if (humanScore > computerScore) {
-        alert("Congratulations! You are the overall winner!");
-    } else if (humanScore < computerScore) {
-        alert("The computer wins the game! Better luck next time.");
-    } else {
-        alert("It's a tie game! Well played.");
+    scoreBoard.textContent =  `Current score: Player = ${humanScore} - Computer = ${computerScore}`;
+
+    if (humanScore >= 5 || computerScore >= 5){
+        if (humanScore > computerScore) {
+            alert("Congratulations! You are the overall winner!");
+        } else if (humanScore < computerScore) {
+            alert("The computer wins the game! Better luck next time.");
+        } else {
+            alert("It's a tie game! Well played.");
+        }
     }
 }
 
