@@ -7,20 +7,6 @@ function getComputerChoice() {
     else if (indexValue === 2)
         return "scissors";
 }
-function getHumanChoice() {
-    const humanChoice = prompt("Enter your choice (rock, paper, scissors): ").toLowerCase();
-
-    if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
-        return humanChoice;
-
-    } else {
-        // This is a recursive call to getHumanChoice if the input is invalid
-        // It will keep asking for input until a valid choice is made
-
-        alert("Invalid choice! Please enter rock, paper, or scissors.");
-        return getHumanChoice();
-    }
-}
 let humanScore = 0;
 let computerScore = 0;
 
@@ -50,3 +36,14 @@ function playGame() {
         alert("It's a tie game! Well played.");
     }
 }
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(
+    (button) =>  {
+        button.addEventListener("click", () => {
+            const computerChoice = getComputerChoice(); 
+            playRound(button.textContent.toLowerCase(), computerChoice);
+        })
+    }
+)
