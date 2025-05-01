@@ -41,13 +41,7 @@ function playRound(humanChoice, computerChoice){
     alert(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
 }
 function playGame() {
-    for (let index = 0; index < 5; index++) {
-        alert(`Round ${index+1}`)
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-        
-        playRound(humanSelection, computerSelection);
-    }
+    
     if (humanScore > computerScore) {
         alert("Congratulations! You are the overall winner!");
     } else if (humanScore < computerScore) {
