@@ -10,21 +10,22 @@ function getComputerChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
+const result = document.querySelector("#ressult");
+
 function playRound(humanChoice, computerChoice){
     if (humanChoice === computerChoice) {
-        alert(`It's a tie! Both chose ${humanChoice}.`);
+        result.textContent = `It's a tie! Both chose ${humanChoice}.`;
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         humanScore++;
-        alert(`You win this round! ${humanChoice} beats ${computerChoice}.`);
+        result.textContent = `You win this round! ${humanChoice} beats ${computerChoice}.`;
     } else {
         computerScore++;
-        alert(`You lose this round! ${computerChoice} beats ${humanChoice}.`);
+        result.textContent = `You lose this round! ${computerChoice} beats ${humanChoice}.`;
     }
-    alert(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
 }
 function playGame() {
     
