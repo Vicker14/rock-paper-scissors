@@ -42,6 +42,8 @@ function playRound(humanChoice, computerChoice){
         } else {
             alert("It's a tie game! Well played.");
         }
+        humanScore = 0;
+        computerScore = 0;
     }
 }
 
